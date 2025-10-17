@@ -3,13 +3,14 @@
 import { StyleSheet, Text, View, StatusBar, TouchableOpacity, Modal, TextInput } from 'react-native'
 import React, { useState } from 'react'
 import NotesList from '../../components/NotesList'
+import AddNoteModal from '../../components/AddNoteModal'
 
 const NoteScreen = () => {
   const [notes, setNotes] = useState([
     {id: 1, title: "Universidad", text: "- Examen de dinamica"},
   ])
 
-  const [modalVisible, setModelVisible] = useState(false)
+  const [modalVisible, setModalVisible] = useState(false)
   // Estados separados para título y contenido
   const [newNoteTitle, setNewNoteTitle] = useState('')
   const [newNoteContent, setNewNoteContent] = useState('')
@@ -27,58 +28,30 @@ const NoteScreen = () => {
     ])
     setNewNoteTitle('')
     setNewNoteContent('')
-    setModelVisible(false)
+    setModalVisible(false)
   }
 
   return (
     <View style={styles.container}>
-      {/* Asegúrate que NotesList muestre el título y el contenido */}
+      {/* NotesList muestra el título y el contenido */}
       <NotesList notes={notes} />
-      <TouchableOpacity style={styles.addbtn} onPress={() => setModelVisible(true)}>
+      <TouchableOpacity style={styles.addbtn} onPress={() => setModalVisible(true)}>
         <Text style={styles.addbtnText}>Agregar</Text>
       </TouchableOpacity>
-      <Modal
-        visible={modalVisible}
-        animationType='slide'
-        transparent
-        onRequestClose={() => setModelVisible(false)}
-      >
-        <View style={styles.modalOverlay}>
-          <View style={styles.modalContent}>
-            <Text style={styles.modalTitle}>Agregar nueva nota</Text>
-            {/* Título */}
-            <TextInput
-              style={styles.modalInputTitle}
-              placeholder='Titulo de la nota'
-              placeholderTextColor={'#aaa'}
-              onChangeText={setNewNoteTitle}
-              value={newNoteTitle}
-            />
-            {/* Contenido */}
-            <TextInput
-              style={styles.modalInputContent}
-              placeholder='Contenido de la nota'
-              placeholderTextColor={'#aaa'}
-              onChangeText={setNewNoteContent}
-              value={newNoteContent}
-            />
-            <View style={styles.modalButtons}>
-              <TouchableOpacity
-                style={styles.cancelBtn}
-                onPress={() => setModelVisible(false)}
-              >
-                <Text style={styles.cancelBtnText}>Cancelar</Text>
-              </TouchableOpacity>
-              <TouchableOpacity
-                style={styles.agregarBtn}
-                onPress={addNewNote}
-              >
-                <Text style={styles.agregarBtnText}>Agregar</Text>
-              </TouchableOpacity>
-            </View>
-          </View>
-        </View>
-      </Modal>
+      {/*Aqui esta el modal */}
+      <AddNoteModal
+      modalVisible={modalVisible}
+      setModalVisible={setModalVisible}
+      //newNote
+      newNoteTitle={newNoteTitle}
+      newNoteContent={newNoteContent}
+      //setNewNote
+      setNewNoteTitle={setNewNoteTitle}
+      setNewNoteContent={setNewNoteContent}
+      
+      addNewNote={addNewNote}
+
+      ></AddNoteModal>
     </View>
   )
 }
