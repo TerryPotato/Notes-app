@@ -5,7 +5,6 @@ import {
     TouchableOpacity,
     Modal,
     TextInput,
-    StatusBar
 
 } from 'react-native'
 import React from 'react'
@@ -69,34 +68,6 @@ const AddNoteModal = ({
 export default AddNoteModal
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    marginTop: StatusBar.currentHeight || 0,
-  },
-  item: {
-    backgroundColor: '#f5e14f',
-    padding: 20,
-    marginVertical: 8,
-    marginHorizontal: 16,
-  },
-  text: {
-    fontSize: 28,
-  },
-  addbtn :{
-    position: 'absolute',
-    bottom: 20,
-    left: 20,
-    right: 20,
-    backgroundColor: '#10B981',
-    padding: 15,
-    borderRadius: 5,
-    alignItems: 'center'
-  },
-  addbtnText:{
-    color: '#ffff',
-    fontSize: 18,
-    fontWeight: 'bold',
-  },
   modalButtons: {
     flexDirection : 'row',
     justifyContent: 'center'

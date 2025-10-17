@@ -1,6 +1,6 @@
 //rnfes
 //npx expo start -c
-import { StyleSheet, Text, View, StatusBar, TouchableOpacity, Modal, TextInput } from 'react-native'
+import { StyleSheet, Text, View, StatusBar, TouchableOpacity} from 'react-native'
 import React, { useState } from 'react'
 import NotesList from '../../components/NotesList'
 import AddNoteModal from '../../components/AddNoteModal'
@@ -48,7 +48,7 @@ const NoteScreen = () => {
       //setNewNote
       setNewNoteTitle={setNewNoteTitle}
       setNewNoteContent={setNewNoteContent}
-      
+
       addNewNote={addNewNote}
 
       ></AddNoteModal>
@@ -62,15 +62,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     marginTop: StatusBar.currentHeight || 0,
-  },
-  item: {
-    backgroundColor: '#f5e14f',
-    padding: 20,
-    marginVertical: 8,
-    marginHorizontal: 16,
-  },
-  text: {
-    fontSize: 28,
   },
   addbtn :{
     position: 'absolute',
@@ -86,76 +77,5 @@ const styles = StyleSheet.create({
     color: '#ffff',
     fontSize: 18,
     fontWeight: 'bold',
-  },
-  modalButtons: {
-    flexDirection : 'row',
-    justifyContent: 'center'
-  },
-  modalOverlay : {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: 'rgba(22, 24, 25, 0.6)',
-  },
-  modalContent : {
-    backgroundColor : '#faf9fe',
-    padding : 20,
-    borderRadius : 20,
-    width : '80%',
-    elevation: 5,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.25,
-    shadowRadius: 4,
-  },
-  modalTitle : {
-    fontSize: 24,
-    fontWeight : 'bold',
-    textAlign : 'center',
-  },
-  modalInputTitle : {
-    fontSize : 18,
-    fontStyle : 'italic', 
-    borderColor : '#cccc',
-    borderWidth : 2,
-    borderRadius : 10,
-    marginTop : 20,
-    marginBottom : 20,
-    backgroundColor : '#cccccc1e',
-    padding: 10
-  },
-  modalInputContent : {
-    fontSize : 18,
-    fontStyle : 'italic', 
-    borderColor : '#cccc',
-    borderWidth : 2,
-    borderRadius : 10,
-    marginTop : 20,
-    marginBottom : 20,
-    backgroundColor : '#cccccc1e',
-    padding: 10
-  },
-  cancelBtn: {
-    backgroundColor : '#ff0000',
-    padding: 10,
-    borderRadius: 5,
-    flex : 1,
-    marginRight : 10,
-    alignItems : 'center'
-  },
-  cancelBtnText : {
-    fontSize : 16,
-    color : '#ffff'
-  },
-  agregarBtn: {
-    backgroundColor : '#37a5ffff',
-    padding: 10,
-    borderRadius: 5,
-    flex : 1,
-    alignItems : 'center'
-  },
-  agregarBtnText : {
-    fontSize : 16,
-    color : '#ffff'
   },
 });
